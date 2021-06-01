@@ -9,7 +9,7 @@ const timerFolder = setTimeout(()=>{
 }, 1000);
 
 const timerFile = setTimeout(()=>{
-    createNewFile('boss', 'notes', 'js');  
+    createNewFile('boss', 'notes', 'js', "my message");  
 }, 3000);
 
 function createNewFolder(name){
@@ -22,10 +22,10 @@ function createNewFolder(name){
     );
 }
 
-function createNewFile(name, folder, format){
+function createNewFile(name, folder, format, message){
     fs.writeFile(
         path.join(__dirname, folder, name + '.' + format),
-        'message',
+        message,
         err=>{
             if(err) throw err;
             console.log(`file ${name.toUpperCase() + '.' + format.toUpperCase()} created.`);
